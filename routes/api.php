@@ -36,12 +36,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('contracts', 'App\Http\Controllers\DepartmentController@find');
 // Route::put('contracts-find-update/{id}', 'App\Http\Controllers\DepartmentController@findOneAndUpdate');
 
-// Route::resource('writings', 'App\Http\Controllers\Package\WritingController');
-// Route::resource('users', 'App\Http\Controllers\Package\UserController');
-// Route::resource('departments', 'App\Http\Controllers\Package\DepartmentController');
-// Route::delete('writings/{writing}/users/{user}', 'App\Http\Controllers\Package\WritingController@detach');
-// Route::get('writings/{writing}/users/', 'App\Http\Controllers\Package\WritingController@getUsers');
+Route::resource('writings', 'App\Http\Controllers\Package\WritingController');
+Route::resource('users', 'App\Http\Controllers\Package\UserController');
+Route::resource('departments', 'App\Http\Controllers\Package\DepartmentController');
+Route::delete('writings/{writing}/users/{user}', 'App\Http\Controllers\Package\WritingController@detach');
+Route::get('writings/{writing}/users/', 'App\Http\Controllers\Package\WritingController@getUsers');
 
 
-Route::resource('users', 'App\Http\Controllers\Native\UserController');
-Route::resource('departments', 'App\Http\Controllers\Native\DepartmentController');
+// Route::resource('users', 'App\Http\Controllers\Native\UserController');
+// Route::resource('departments', 'App\Http\Controllers\Native\DepartmentController');

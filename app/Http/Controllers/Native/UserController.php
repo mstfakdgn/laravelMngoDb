@@ -33,11 +33,18 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $departmantColection= $this->client->mongophp->departments;
+
+        $departmentObjectId = new \MongoDB\BSON\ObjectId($request->department_id);
+        
+        $department = $departmantColection->findOne(['_id' => $departmentObjectId]);
+
         try {
             $result =  $this->collection->insertOne([
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password
+                'password' => $request->password,
+                'department' => $department->jsonSerialize()
             ]);
         } catch (\Throwable $th) {
             dd($th);
